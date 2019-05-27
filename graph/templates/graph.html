@@ -1,0 +1,50 @@
+{% extends "base.html" %}{% load static %}
+
+{% block title %}BeerGraph{% endblock title %}
+
+{% block css %}
+    <style type="text/css">
+        *{
+            margin-top: 0;
+        }
+        div.chart-wrapper > div > div > div > svg{
+            min-height: 900px;
+        }
+
+        nav{
+            display: flex;
+            justify-content: flex-end;
+            margin-left: 0;
+            width: 100vw;
+        }
+        .veri-giris-tusu{
+            padding: 7px 39px 18px 39px;
+            color: #FFF;
+            background: #1abc9c;
+            font-size: 18px;
+            font-style: normal;
+            border: 1px solid #16a085;
+            border-width: 1px 1px 3px;
+            margin-bottom: 10px;
+            border-radius: 0 0 0 5px;
+            text-decoration: none;
+        }
+        .veri-giris-tusu:hover{
+            background-color: #1bcd9e
+        }
+    </style>
+{% endblock css %}
+
+{% block body %}
+    <header>
+        <nav>
+            <a class="veri-giris-tusu" href="/form">Veri Girisi</a>
+        </nav>
+    </header>
+    <div class="chart-wrapper" id="chart_div" style="width: 100vw; height: 500px;"></div>
+{% endblock body %}
+
+{% block javascript %}
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="{% static 'graph.js'%}"></script>
+{% endblock javascript %}

@@ -1,0 +1,158 @@
+{% extends "base.html" %}{% load static %}
+
+{% block title %}BeerGraph - Form{% endblock title %}
+
+{% block css %}
+<style type="text/css">
+*{
+    margin-left: 0;
+    margin-top:0;
+}
+.form-main-wrapper{
+    max-width: 1000px;
+    margin: auto;
+}
+.form-main-wrapper fieldset{
+    border: none;
+}
+.form-main-wrapper legend {
+    font-size: 1.4em;
+    margin-bottom: 10px;
+}
+.form-main-wrapper label {
+    display: block;
+    margin-bottom: 8px;
+}
+.form-main-wrapper input[type="text"],
+.form-main-wrapper input[type="number"],
+.form-main-wrapper textarea,
+.form-main-wrapper select {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    background: rgba(255,255,255,.1);
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+    margin: 0;
+    outline: 0;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    background-color: #e8eeef;
+    color:#8a97a0;
+    -webkit-box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+    margin-bottom: 30px;
+}
+.form-main-wrapper input[type="text"]:focus,
+.form-main-wrapper input[type="number"]:focus,
+.form-main-wrapper textarea:focus,
+.form-main-wrapper select:focus{
+    background: #d2d9dd;
+}
+.form-main-wrapper select{
+    -webkit-appearance: listbox;
+    height:35px;
+}
+.form-main-wrapper .number {
+    background: #1abc9c;
+    color: #fff;
+    height: 30px;
+    width: 30px;
+    display: inline-block;
+    font-size: 0.8em;
+    margin-right: 4px;
+    line-height: 30px;
+    text-align: center;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.2);
+    border-radius: 15px 15px 15px 0px;
+}
+
+.form-main-wrapper input[type="submit"],
+.form-main-wrapper input[type="button"]
+{
+    position: relative;
+    display: block;
+    padding: 19px 39px 18px 39px;
+    color: #FFF;
+    margin: 0 auto;
+    background: #1abc9c;
+    font-size: 18px;
+    text-align: center;
+    font-style: normal;
+    width: 100%;
+    border: 1px solid #16a085;
+    border-width: 1px 1px 3px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.anasayfa-tusu{
+    padding: 30px 39px 18px 39px;
+    color: #FFF;
+    background: #1abc9c;
+    font-size: 18px;
+    font-style: normal;
+    border: 1px solid #16a085;
+    border-width: 1px 1px 3px;
+    margin-bottom: 10px;
+    border-radius: 0 15px 15px 0;
+    text-decoration: none;
+    line-height: 45px;
+}
+
+.anasayfa-tusu:hover{
+    background-color: #1bcd9e;
+}
+
+.form-main-wrapper input[type="submit"]:hover,
+.form-main-wrapper button:hover
+{
+    background: #1bcd9e;
+    cursor: pointer;
+}</style>
+
+{% endblock css %}
+
+{% block body %}
+<header>
+    <nav>
+        <a class="anasayfa-tusu" href="/">Anasayfa</a>
+    </nav>
+</header>
+    <form id="form">
+        <div class="form-main-wrapper">
+            <fieldset>
+                <legend><span class="number">1</span> Bira Adi - Versiyonu</legend>
+                <input type="text" id="name" name="name" required placeholder="Bira Adi - Versiyonu*">
+            </fieldset>
+            <fieldset>
+                <legend><span class="number">2</span>Miktarlar</legend>
+                <input type="number" id="malt_miktari" name="malt_miktari" placeholder="Malt Miktari(KG)">
+                <input type="number" id="hop_miktari" name="hop_miktari" placeholder="Hop Miktari (Gr)">
+            </fieldset>
+            <fieldset>
+                <legend><span class="number">3</span>Ölçümler</legend>
+                <input type="number" name="ilk_olcum" id="ilkOlcum" step="0.1" placeholder="Ilk Ölçum(Plato)">
+                <input type="number"  name="son_olcum" id="sonOlcum" step="0.1" placeholder="Son Ölçum(Plato)">
+                <label for="abv">Tahmini Alkol Seviyesi(ABV)</label>
+                <input type="number" required disabled step="0.01" id="abv" name="abv" placeholder="Alkol" value="">
+                <label for="mayalama">Mayalama Sicakligi(&#8451;)</label>
+                <input type="number" required step="1" id="mayalama" name="mayalama" placeholder="&#8451;" value="">
+           </fieldset>
+           <fieldset>
+                <legend><span class="number">4</span>Süreler</legend>
+                <label for="kaynatma">Kaynatma Suresi</label>
+                <input type="number" required="true" placeholder="Kaynatma suresi(dk)" name="kaynatma">
+                <label for="mash_time">Mash Suresi</label>
+                <input type="number" required="true" placeholder="mash suresi(dk)" name="mash_time">
+            </fieldset>
+                <input type="submit" value="Çizim Ekle">
+        </div>
+    </form>
+{% endblock body %}
+
+{% block javascript %}
+        <script src="{% static 'form.js'%}"></script>
+{% endblock javascript %}
