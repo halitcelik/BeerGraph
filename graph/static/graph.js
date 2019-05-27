@@ -5,10 +5,11 @@ var biraArray = [
           ['Son O.',],
           ['Malt Miktari (KG)',],
           ['Hop Miktari (Gr)',],
-          ['abv',],
+          ['ABV',],
           ['Kaynatma'],
           ['Mash (dk)',],
           ['Mayalama(℃)',],
+          ['sure',],
         ]
 
 
@@ -20,7 +21,6 @@ fetch('/api/list')
         const values = Object.values(graph)
         var counter = 0;
         for(var value of values){
-            console.log(biraArray[counter])
             biraArray[counter].push(value)
             counter++
         }

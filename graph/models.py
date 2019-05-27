@@ -15,6 +15,7 @@ class Beer(models.Model):
     mayalama = models.IntegerField()
     kaynatma = models.IntegerField()
     mash_time = models.IntegerField()
+    sure = models.FloatField()
 
     def __str__(self):
         return self.name

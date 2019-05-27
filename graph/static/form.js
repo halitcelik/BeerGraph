@@ -54,19 +54,6 @@ form.addEventListener('submit', function(e){
 				};
 
 	var formData = toJSONString(form)
-	/* {
-		'name':bira,
-		'ilk_olcum':parseFloat(ilkOlcum),
-		'son_olcum':parseFloat(sonOlcum),
-		'mash_time':parseInt(mash),
-		'kaynatma':parseInt(kaynatma),
-		'malt_miktari':parseFloat(maltMiktari),
-		'hop_miktari':parseInt(hopMiktari),
-		'abv':parseFloat(abv),
-		'mayalama': parseInt(mayalama),
-
-	};*/
-	console.log(formData)
 	fetch('/api/add', {
 		headers: {
 			'X-CSRFToken':(/csrftoken\=([\w\d]+)/.exec(document.cookie) || {1:''})[1],

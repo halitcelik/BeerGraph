@@ -9,7 +9,9 @@
     margin-top:0;
 }
 .form-main-wrapper{
-    max-width: 1000px;
+    justify-content: space-between;
+    display: flex;
+    max-width: 900px;
     margin: auto;
 }
 .form-main-wrapper fieldset{
@@ -69,9 +71,7 @@
     border-radius: 15px 15px 15px 0px;
 }
 
-.form-main-wrapper input[type="submit"],
-.form-main-wrapper input[type="button"]
-{
+.submit-button{
     position: relative;
     display: block;
     padding: 19px 39px 18px 39px;
@@ -81,7 +81,7 @@
     font-size: 18px;
     text-align: center;
     font-style: normal;
-    width: 100%;
+    width: 900px;
     border: 1px solid #16a085;
     border-width: 1px 1px 3px;
     margin-bottom: 10px;
@@ -106,12 +106,17 @@
     background-color: #1bcd9e;
 }
 
-.form-main-wrapper input[type="submit"]:hover,
-.form-main-wrapper button:hover
+.submit-button:hover
 {
     background: #1bcd9e;
     cursor: pointer;
-}</style>
+}
+
+.left-block{
+    max-width: 400px;
+}
+
+</style>
 
 {% endblock css %}
 
@@ -123,33 +128,42 @@
 </header>
     <form id="form">
         <div class="form-main-wrapper">
-            <fieldset>
-                <legend><span class="number">1</span> Bira Adi - Versiyonu</legend>
-                <input type="text" id="name" name="name" required placeholder="Bira Adi - Versiyonu*">
-            </fieldset>
-            <fieldset>
-                <legend><span class="number">2</span>Miktarlar</legend>
-                <input type="number" id="malt_miktari" name="malt_miktari" placeholder="Malt Miktari(KG)">
-                <input type="number" id="hop_miktari" name="hop_miktari" placeholder="Hop Miktari (Gr)">
-            </fieldset>
-            <fieldset>
-                <legend><span class="number">3</span>Ölçümler</legend>
+            <div class="left-block">
+                <fieldset>
+                    <legend><span class="number">1</span> Bira Adi - Versiyonu</legend>
+                    <input type="text" id="name" name="name" required placeholder="Bira Adi - Versiyonu*">
+                </fieldset>
+                <fieldset>
+                    <legend><span class="number">2</span>Süreler</legend>
+                    <label for="kaynatma">Kaynatma Suresi</label>
+                    <input type="number" required="true" placeholder="Kaynatma suresi(dk)" name="kaynatma">
+                    <label for="mash_time">Mash Suresi</label>
+                    <input type="number" required="true" placeholder="mash suresi(dk)" name="mash_time">
+                </fieldset>
+                <fieldset>
+                    <legend><span class="number">3</span>Miktarlar</legend>
+                    <input type="number" id="malt_miktari" name="malt_miktari" placeholder="Malt Miktari(KG)">
+                    <input type="number" id="hop_miktari" name="hop_miktari" placeholder="Hop Miktari (Gr)">
+                </fieldset>
+            </div>
+            <div class="right-block">
+                <fieldset>
+                <legend><span class="number">4</span>Ölçümler</legend>
                 <input type="number" name="ilk_olcum" id="ilkOlcum" step="0.1" placeholder="Ilk Ölçum(Plato)">
                 <input type="number"  name="son_olcum" id="sonOlcum" step="0.1" placeholder="Son Ölçum(Plato)">
                 <label for="abv">Tahmini Alkol Seviyesi(ABV)</label>
                 <input type="number" required disabled step="0.01" id="abv" name="abv" placeholder="Alkol" value="">
                 <label for="mayalama">Mayalama Sicakligi(&#8451;)</label>
                 <input type="number" required step="1" id="mayalama" name="mayalama" placeholder="&#8451;" value="">
+                <label for="sure">Sure</label>
+                <input type="number" name="sure" placeholder="Toplam Harcanan Sure (Saat)" >
            </fieldset>
-           <fieldset>
-                <legend><span class="number">4</span>Süreler</legend>
-                <label for="kaynatma">Kaynatma Suresi</label>
-                <input type="number" required="true" placeholder="Kaynatma suresi(dk)" name="kaynatma">
-                <label for="mash_time">Mash Suresi</label>
-                <input type="number" required="true" placeholder="mash suresi(dk)" name="mash_time">
-            </fieldset>
-                <input type="submit" value="Çizim Ekle">
+            </div>
+
+
+
         </div>
+         <input class="submit-button" type="submit" value="Çizim Ekle">
     </form>
 {% endblock body %}
 

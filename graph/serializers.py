@@ -17,6 +17,7 @@ class BeerListSerializer(serializers.ModelSerializer):
             'kaynatma',
             'mash_time',
             'mayalama',
+            'sure',
         )
 
 
@@ -33,4 +34,5 @@ class BeerCreateSerializer(serializers.ModelSerializer):
             'kaynatma',
             'mash_time',
             'mayalama',
+            'sure',
         )
